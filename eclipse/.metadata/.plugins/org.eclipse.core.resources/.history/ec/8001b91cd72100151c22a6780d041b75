@@ -1,0 +1,39 @@
+package com.camp.block;
+
+import com.example.examplemod.cm;
+
+import net.minecraft.block.Block;
+import net.minecraft.block.material.Material;
+import net.minecraft.block.state.IBlockState;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.player.EntityPlayerMP;
+import net.minecraft.server.MinecraftServer;
+import net.minecraft.util.BlockPos;
+import net.minecraft.world.World;
+
+public class DeathBlock extends Block{
+	public static final String name = "DeathBlock";
+	protected DeathBlock() {
+		super(Material.fire);
+		// TODO Auto-generated constructor stub
+		this.setUnlocalizedName(this.name);
+	}
+	
+	@Override
+    public void onEntityCollidedWithBlock(World worldIn, BlockPos pos,
+            Entity entityIn) {
+        // TODO Auto-generated method stub
+        super.onEntityCollidedWithBlock(worldIn, pos, entityIn);
+        if ((entityIn.ridingEntity == null) && (entityIn.riddenByEntity == null) && ((entityIn instanceof EntityPlayerMP)))
+        {
+               EntityPlayerMP player = (EntityPlayerMP) entityIn;
+                
+               entityIn.isBurning();
+               entityIn.fireResistance=0;
+               entityIn.isInLava();
+               entityIn.setDead();
+               worldIn.updateEntity(entityIn);
+        }
+    }
+
+}

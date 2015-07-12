@@ -1,0 +1,51 @@
+package com.camp.biome;
+ 
+import java.util.ArrayList;
+
+import net.minecraft.init.Blocks;
+import net.minecraft.world.biome.BiomeGenBase;
+import net.minecraft.world.biome.WorldChunkManager;
+import net.minecraft.world.gen.structure.MapGenVillage;
+ 
+//import com.camp.entity.CustomMob;
+ 
+public class CustomBiome extends BiomeGenBase {
+ 
+    public CustomBiome(int id) {
+        super(id);
+        this.setColor(0x12034e);
+        // TODO Auto-generated constructor stub
+        this.fillerBlock = Blocks.obsidian.getStateFromMeta(1);
+        this.topBlock = Blocks.soul_sand.getDefaultState();
+        this.waterColorMultiplier = 0x9b30ff;
+      //  this.getModdedBiomeFoliageColor(0xff83fa);
+        this.theBiomeDecorator.treesPerChunk = 8;
+        this.theBiomeDecorator.generateLakes = true;
+        net.minecraftforge.common.BiomeManager.strongHoldBiomes.add(this);
+        
+    }
+    
+    @SuppressWarnings("unchecked")
+    public static void addVillageBiome(BiomeGenBase biome, boolean canSpawn)
+    {
+        if (!MapGenVillage.villageSpawnBiomes.contains(biome))
+        {
+            ArrayList<BiomeGenBase> biomes = new ArrayList<BiomeGenBase>(MapGenVillage.villageSpawnBiomes);
+            biomes.add(biome);
+            MapGenVillage.villageSpawnBiomes = biomes;
+        }
+    }
+	
+	
+	
+	
+	public static void addSpawnBiome(BiomeGenBase biome)
+    {
+        if (!WorldChunkManager.allowedBiomes.contains(biome))
+        {
+            WorldChunkManager.allowedBiomes.add(biome);
+        }
+    }
+ 
+ 
+}

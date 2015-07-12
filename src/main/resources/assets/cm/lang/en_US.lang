@@ -1,0 +1,9 @@
+item.CustomItem.name=Custom Item
+item.CustomPickaxe.name=Custom Pickaxe
+item.CustomAxe.name=Custom Axe
+item.CustomHoe.name=Custom Hoe
+item.CustomShovel.name=Custom Shovel
+item.CustomSword.name=Custom Sword
+tile.CustomBlock.name=Splatoon Block
+tile.SmashBlock.name=Super Smash Bros. Block
+entity.CustomMob.name=Custom Mob

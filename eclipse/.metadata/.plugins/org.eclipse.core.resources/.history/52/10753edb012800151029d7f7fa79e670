@@ -1,0 +1,24 @@
+package com.camp.init;
+
+//import com.choonster.testmod3.config.Config;
+import com.camp.biome.CustomBiome;
+import net.minecraft.world.biome.BiomeGenBase;
+import net.minecraftforge.common.BiomeDictionary;
+import net.minecraftforge.common.BiomeManager;
+
+import static net.minecraftforge.common.BiomeDictionary.Type.*;
+
+public class ModBiomes {
+	public static CustomBiome firestone;
+
+	public static void registerBiomes() {
+		firestone = reigsterBiome(new CustomBiome(50), BiomeManager.BiomeType.WARM, 1000, SANDY, SWAMP, JUNGLE);
+	}
+
+	private static <T extends BiomeGenBase> T reigsterBiome(T biome, BiomeManager.BiomeType biomeType, int weight, BiomeDictionary.Type... types) {
+		BiomeDictionary.registerBiomeType(biome, types);
+		BiomeManager.addBiome(biomeType, new BiomeManager.BiomeEntry(biome, weight));
+
+		return biome;
+	}
+}

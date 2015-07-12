@@ -1,0 +1,29 @@
+package com.camp.biome;
+ 
+import net.minecraft.init.Blocks;
+import net.minecraft.world.biome.BiomeGenBase;
+ 
+//import com.camp.entity.CustomMob;
+ 
+public class CustomBiome extends BiomeGenBase {
+ 
+    public CustomBiome(int p_i1971_1_, boolean register) {
+        super(p_i1971_1_, register);
+        this.setColor(0x12034e);
+        // TODO Auto-generated constructor stub
+        this.fillerBlock = Blocks.obsidian.getStateFromMeta(1);
+        this.topBlock = Blocks.soul_sand.getDefaultState();
+        this.waterColorMultiplier = 0x9b30ff;
+      //  this.getModdedBiomeFoliageColor(0xff83fa);
+        this.theBiomeDecorator.treesPerChunk = 8;
+        this.theBiomeDecorator.generateLakes = true;
+        
+        
+         
+        //this.spawnableMonsterList.clear();
+        //this.spawnableMonsterList.add(new SpawnListEntry(CustomMob.class, 100, 1, 4));
+         
+    }
+ 
+ 
+}
